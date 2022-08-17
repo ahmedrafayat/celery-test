@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  broker:
+    container_name: broker
+    image: rabbitmq:3.10.7-alpine
+    ports:
+      - '5672:5672'
+  
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis:/data'
+
+volumes:
+  redis:
