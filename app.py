@@ -18,9 +18,9 @@ app = Celery('tasks', broker='amqp://127.0.0.1:5672', backend='redis://127.0.0.1
 #     )
 
 app.conf.beat_schedule = {
-    'add-every-30-seconds': {
+    'add-every-1-minute': {
         'task': 'app.reverse',
-        'schedule': 5,
+        'schedule': crontab(minute='*/1'),
         'args': ('Ahmed',)
     },
 }
